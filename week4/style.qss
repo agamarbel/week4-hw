@@ -1,13 +1,5 @@
-import os
-import sys
-from pathlib import Path
-
-if sys.platform == "darwin":
-    qt_platform_plugins = (
-        Path(__file__).resolve().parent.parent / "qtplugins" / "platforms"
-    )
-    if qt_platform_plugins.is_dir():
-        os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = str(qt_platform_plugins)
-
-from PySide6.QtWidgets import QApplication, QWidget, QLabel,QGraphicsDropShadowEffect
-from PySide6.QtGui import QPixmap, Qt, QColor
+QMainWindow, QWidget {
+    background-color: #f4f6f9;
+    color: #1f2937;
+    font-size: 13px;
+}
