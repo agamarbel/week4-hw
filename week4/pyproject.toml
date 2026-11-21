@@ -1,0 +1,17 @@
+[project]
+name = "untitled-folder"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "agam arbel", email = "agam.arbel@s.afeka.ac.il" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+untitled-folder = "untitled_folder:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
