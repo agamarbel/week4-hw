@@ -9,3 +9,15 @@ if sys.platform == "darwin":
     if qt_platform_plugins.is_dir():
         os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = str(qt_platform_plugins)
 
+from PySide6.QtWidgets import QApplication, QWidget, QMainWindow
+class GradeCorrectionWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Grade correction ")
+        self.resize(720,520)
+        self.student_ids = []
+        self.original_grades = []
+        self.corrected_grades = []
+        self.selected_file = ''
+        self._init_ui()
+
