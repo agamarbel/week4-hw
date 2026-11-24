@@ -92,6 +92,24 @@ class GradeCorrectionWindow(QMainWindow):
                 new_grade = 100
             self.corrected_grades[i] = new_grade
         self.update_table()
+
+
+    def update_file(self):
+        if not self.selected_file:
+            return
+        with open(self.selected_file) as f:
+            lines = f.readlines()
+        header = lines[0].strip()
+        new_lines = [header + "\n"]
+        for i in range(len(self.student_ids)):
+            new_lines.append(f"{self.student_ids[i]},{self.corrected_grades[i]}\n")
+        with open(self.selected_file, "w") as f:
+            f.writelines(new_lines)
+
+        self.open_file_cross_platform(self.selected_file)
+
+    
+   
    
 
 
