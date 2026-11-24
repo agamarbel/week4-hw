@@ -9,7 +9,7 @@ if sys.platform == "darwin":
     if qt_platform_plugins.is_dir():
         os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = str(qt_platform_plugins)
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QFileDialog, QTableWidget,  QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QFileDialog, QTableWidget,  QTableWidgetItem, QSpinBox, QLabel
 from About import AboutWindow
 
 
@@ -42,7 +42,15 @@ class GradeCorrectionWindow(QMainWindow):
         self.table.setColumnWidth(1,200)
         self.table.setColumnWidth(2,200)
 
+        self.bouns_label= QLabel(' choose bonus', self)
+        self.bouns_label.setGeometry(350, 50, 50, 40)
 
+        self.bonus_spin= QSpinBox(self)
+        self.bonus_spin.setGeometry(400,50, 80, 40)
+        self.bonus_spin.setRange(0,100)
+        self.bonus_spin.valueChanged.clicked.connect(self.uptade_file)
+
+        
 
     def load_met(self):
         result = QFileDialog.getOpenFileName(self, "Press to see student file", "", "CSV files(*.csv)")
@@ -66,7 +74,7 @@ class GradeCorrectionWindow(QMainWindow):
 
 
     def update_table(self):
-        self.tabble.clearContents()
+        self.table.clearContents()
         for row_idx in range(len(self.student_ids)):
             self.table.setItem(row_idx, 0, QTableWidgetItem(str(self.student_ids[row_idx])))
             self.table.setItem(row_idx, 1, QTableWidgetItem(str(self.original_grades[row_idx])))
