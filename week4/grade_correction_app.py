@@ -75,6 +75,7 @@ class GradeCorrectionWindow(QMainWindow):
             self.original_grades.append(grade)
             self.corrected_grades.append(grade)
 
+        self.update_table()
 
     def update_table(self):
         self.table.clearContents()
@@ -83,7 +84,15 @@ class GradeCorrectionWindow(QMainWindow):
             self.table.setItem(row_idx, 1, QTableWidgetItem(str(self.original_grades[row_idx])))
             self.table.setItem(row_idx, 2, QTableWidgetItem(str(self.corrected_grades[row_idx])))
 
-
+    def apply_bouns(self):
+        bonus= self.bouns_spin.value()
+        for i in range(len(self.original_grades)):
+            new_grade = self.original_grades[i] + bonus
+            if new_grade > 100:
+                new_grade = 100
+            self.corrected_grades[i] = new_grade
+        self.update_table()
+   
 
 
 
