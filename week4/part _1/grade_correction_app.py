@@ -5,7 +5,7 @@ from pathlib import Path
 
 if sys.platform == "darwin":
     qt_platform_plugins = (
-        Path(__file__).resolve().parent.parent / "qtplugins" / "platforms"
+        Path(__file__).resolve().parent.parent.parent / "qtplugins" / "platforms"
     )
     if qt_platform_plugins.is_dir():
         os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = str(qt_platform_plugins)

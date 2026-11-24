@@ -8,9 +8,9 @@
             "type": "debugpy",
             "request": "launch",
             "name": "Python: Grade Correction App",
-            "program": "${workspaceFolder}/grade_correction_app.py",
+            "program": "${workspaceFolder}/part _1/grade_correction_app.py",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}/part _1"
         }
     ]
 }
