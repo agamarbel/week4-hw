@@ -51,7 +51,7 @@ class GradeCorrectionWindow(QMainWindow):
         self.bonus_spin.valueChanged.connect(self.apply_bouns)
 
         self.update_file_button= QPushButton('update file', self)
-        self.update_file_button.setGeometry(500, 30, 130, 45)
+        self.update_file_button.setGeometry(500, 30, 130, 40)
         self.update_file_button.clicked.connect(self.update_file)
 
     def load_met(self):
@@ -121,7 +121,12 @@ class GradeCorrectionWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+
+    qss_path = Path(__file__).resolve().parent / "style.qss"
+    if qss_path.is_file():
+        with open(qss_path, "r", encoding="utf-8") as f:
+            app.setStyleSheet(f.read())
+
     window = GradeCorrectionWindow()
     window.show()
     sys.exit(app.exec())
-
