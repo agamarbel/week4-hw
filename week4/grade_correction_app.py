@@ -50,6 +50,9 @@ class GradeCorrectionWindow(QMainWindow):
         self.bonus_spin.setRange(0,100)
         self.bonus_spin.valueChanged.clicked.connect(self.uptade_file)
 
+        self.update_file_button= QPushButton('update file', self)
+        self.update_file_button.setGeometry(500, 50, 140, 45)
+        self.update_file_button.clicked.connect(self.update_file)
         
 
     def load_met(self):
