@@ -107,13 +107,15 @@ class GradeCorrectionWindow(QMainWindow):
             f.writelines(new_lines)
 
         self.open_file_cross_platform(self.selected_file)
+    def open_file_cross_platform(self, file_path)
+        if sys.platform== "darwin"
+            subprocess.Popen(["open", file_path])
+        elif sys.platform.startswith("win"):
+            os.startfile(file_path)
+        else:
+            subprocess.Popen(["xdg-open", file_path])
 
     
-   
-   
-
-
-
 
     def show_about(self):
         self.about_window.show()
